@@ -10,13 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
-    AppiumConfig appiumConfig = new AppiumConfig();
-
-    AppiumDriver driver;
-
     public BasePage() {
-        driver = AppiumConfig.getDriver();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        PageFactory.initElements(new AppiumFieldDecorator(AppiumConfig.getDriver()), this);
     }
 
     public String getText(MobileElement element) {
@@ -27,17 +22,15 @@ public class BasePage {
         element.click();
         element.clear();
         element.sendKeys(text);
-        driver.hideKeyboard();
+        AppiumConfig.getDriver().hideKeyboard();
     }
 
     public void click(MobileElement element) {
-        driver = appiumConfig.getDriver();
         element.click();
     }
 
     public void wait(MobileElement element) {
-        driver = appiumConfig.getDriver();
-        new WebDriverWait(driver, 10)
+        new WebDriverWait(AppiumConfig.getDriver(), 15)
                 .until(ExpectedConditions.visibilityOf(element));
     }
 

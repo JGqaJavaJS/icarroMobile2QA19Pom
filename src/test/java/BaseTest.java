@@ -11,7 +11,7 @@ public class BaseTest extends AppiumConfig {
 
     @BeforeSuite
     public void start() {
-        getDriver();
+        //getDriver();
     }
 
 }

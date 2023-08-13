@@ -12,7 +12,7 @@ import java.net.URL;
 
 public class AppiumConfig {
 
-    public static AppiumDriver<MobileElement> driver;
+    private static AppiumDriver<MobileElement> driver;
 
     /*
       "platformName": "Android",
@@ -23,7 +23,7 @@ public class AppiumConfig {
      */
 
     @BeforeSuite
-    public void setUp() {
+    private static void setUp() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("deviceName", "Nex6");
@@ -42,7 +42,7 @@ public class AppiumConfig {
         // http://127.0.0.1:4723/wd/hub
     }
 
-    public AppiumDriver getDriver() {
+    public static AppiumDriver getDriver() {
         if(driver == null) {
             setUp();
         }
@@ -50,7 +50,7 @@ public class AppiumConfig {
     }
 
     @AfterSuite
-    public void tearDown() {
+    public static void tearDown() {
         driver.quit();
     }
 

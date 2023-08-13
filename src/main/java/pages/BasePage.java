@@ -15,16 +15,15 @@ public class BasePage {
     AppiumDriver driver;
 
     public BasePage() {
+        driver = AppiumConfig.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     public String getText(MobileElement element) {
-        driver = appiumConfig.getDriver();
         return element.getText().trim().toUpperCase();
     }
 
     public void typeText(String text, MobileElement element) {
-        driver = appiumConfig.getDriver();
         element.click();
         element.clear();
         element.sendKeys(text);

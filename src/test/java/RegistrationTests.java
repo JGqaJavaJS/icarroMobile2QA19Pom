@@ -2,12 +2,16 @@ import config.AppiumConfig;
 import dto.UserDTO;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.BasePage;
-import pages.RegistrationPage;
-import pages.SearchPage;
+import pages.*;
 import utils.RandomUtils;
 
 public class RegistrationTests extends BaseTest {
+
+        LoginPage loginPage = new LoginPage();
+    RegistrationPage registrationPage = new RegistrationPage();
+    SearchPage searchPage = new SearchPage();
+    SearchResultPage searchResultPage = new SearchResultPage();
+    SplashPage splashPage = new SplashPage();
 
     @Test
     public void registrationPositiveTest() {
@@ -20,9 +24,7 @@ public class RegistrationTests extends BaseTest {
                 .email(email)
                 .password("123456Aa$")
                 .build();
-        SearchPage searchPage = new SearchPage(driver);
         searchPage.switchToRegistrationPage();
-        RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.fillRegistrationForm(userDto);
         Assert.assertTrue(searchPage.validatePageTitleCorrect());
     }

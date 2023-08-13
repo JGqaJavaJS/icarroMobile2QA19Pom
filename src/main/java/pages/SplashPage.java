@@ -6,14 +6,11 @@ import org.openqa.selenium.support.FindBy;
 
 public class SplashPage extends BasePage{
 
-    public SplashPage(AppiumDriver<MobileElement> driver) {
-        super(driver);
-    }
-
     @FindBy(xpath = "//*[@resource-id = 'com.telran.ilcarro:id/versionText']")
     MobileElement androidWidgetTextView;
 
     public boolean validateVersionDisplaysCorrect() {
+        wait(androidWidgetTextView);
         String actualResult = getText(androidWidgetTextView);
         String expectedResult = "Version 1.0.0".toUpperCase();
         if(actualResult.equals(expectedResult)) {

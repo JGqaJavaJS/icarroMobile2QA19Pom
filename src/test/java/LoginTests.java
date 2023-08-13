@@ -1,19 +1,21 @@
 import config.AppiumConfig;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.BasePage;
-import pages.LoginPage;
-import pages.SearchPage;
+import pages.*;
 
 public class LoginTests extends BaseTest {
+
+        LoginPage loginPage = new LoginPage();
+    RegistrationPage registrationPage = new RegistrationPage();
+    SearchPage searchPage = new SearchPage();
+    SearchResultPage searchResultPage = new SearchResultPage();
+    SplashPage splashPage = new SplashPage();
 
     @Test
     public void loginTestPositive() {
         String email = "john215autotest@hotmail.com";
         String password = "123456Aa$";
-        SearchPage searchPage = new SearchPage(driver);
         searchPage.switchToLoginPage();
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.fillLoginForm(email, password);
         Assert.assertTrue(searchPage.validatePageTitleCorrect());
     }

@@ -1,5 +1,6 @@
 package pages;
 
+import config.AppiumConfig;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -9,18 +10,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
-    AppiumDriver<MobileElement> driver;
+    AppiumConfig appiumConfig = new AppiumConfig();
 
-    public BasePage(AppiumDriver<MobileElement> driver) {
-        this.driver = driver;
+    AppiumDriver driver;
+
+    public BasePage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     public String getText(MobileElement element) {
+        driver = appiumConfig.getDriver();
         return element.getText().trim().toUpperCase();
     }
 
     public void typeText(String text, MobileElement element) {
+        driver = appiumConfig.getDriver();
         element.click();
         element.clear();
         element.sendKeys(text);
@@ -28,10 +32,12 @@ public class BasePage {
     }
 
     public void click(MobileElement element) {
+        driver = appiumConfig.getDriver();
         element.click();
     }
 
     public void wait(MobileElement element) {
+        driver = appiumConfig.getDriver();
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOf(element));
     }

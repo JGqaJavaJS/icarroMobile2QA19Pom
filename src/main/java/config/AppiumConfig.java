@@ -42,6 +42,13 @@ public class AppiumConfig {
         // http://127.0.0.1:4723/wd/hub
     }
 
+    public AppiumDriver getDriver() {
+        if(driver == null) {
+            setUp();
+        }
+        return driver;
+    }
+
     @AfterSuite
     public void tearDown() {
         driver.quit();

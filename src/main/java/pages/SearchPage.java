@@ -11,10 +11,6 @@ import java.util.List;
 
 public class SearchPage extends BasePage {
 
-    public SearchPage(AppiumDriver<MobileElement> driver) {
-        super(driver);
-    }
-
     @FindBy(xpath = "//*[@resource-id = 'com.telran.ilcarro:id/editLocation']")
     MobileElement location;
     @FindBy(xpath = "//*[@resource-id = 'com.telran.ilcarro:id/editFrom']")

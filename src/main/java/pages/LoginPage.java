@@ -6,10 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage{
 
-    public LoginPage(AppiumDriver<MobileElement> driver) {
-        super(driver);
-    }
-
     @FindBy(xpath = "//*[@resource-id = 'com.telran.ilcarro:id/editLoginEmail']")
     MobileElement inputEmail;
 

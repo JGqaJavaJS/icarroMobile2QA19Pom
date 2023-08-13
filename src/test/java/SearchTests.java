@@ -1,10 +1,15 @@
 import config.AppiumConfig;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.SearchPage;
-import pages.SearchResultPage;
+import pages.*;
 
 public class SearchTests extends BaseTest {
+
+        LoginPage loginPage = new LoginPage();
+    RegistrationPage registrationPage = new RegistrationPage();
+    SearchPage searchPage = new SearchPage();
+    SearchResultPage searchResultPage = new SearchResultPage();
+    SplashPage splashPage = new SplashPage();
 
     String city = "Tel Aviv";
     int dayFrom = 4;
@@ -13,9 +18,8 @@ public class SearchTests extends BaseTest {
 
     @Test
     public void testFillSearchForm() {
-        SearchPage searchPage = new SearchPage(driver);
         searchPage.fillSearchForm(city, quantityNextMonth, dayFrom, dayTo);
-        Assert.assertTrue(new SearchResultPage(driver).validateTitleDisplaysCorrect());
+        Assert.assertTrue(searchResultPage.validateTitleDisplaysCorrect());
     }
 
 }

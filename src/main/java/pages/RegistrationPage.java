@@ -26,7 +26,6 @@ public class RegistrationPage extends BasePage{
     MobileElement btnYalla;
 
     public void fillRegistrationForm(UserDTO userDto) {
-        wait(inputName);
         typeText(userDto.getName(), inputName);
         typeText(userDto.getLastName(), inputLastName);
         typeText(userDto.getEmail(), inputEmail);

@@ -39,7 +39,6 @@ public class SearchPage extends BasePage {
     MobileElement pageTitle;
 
     public void fillSearchForm(String city, int counter, int dayFrom, int dayTo) {
-        wait(location);
         typeText(city, location);
         click(dateFrom);
         for(int i = 0; i < counter; i++) {
@@ -57,7 +56,6 @@ public class SearchPage extends BasePage {
     }
 
     public boolean validatePageTitleCorrect() {
-        wait(pageTitle);
         String actualResult = getText(pageTitle);
         String expectedResult = "Find your car now!".toUpperCase();
         if(actualResult.equals(expectedResult)) {
@@ -70,16 +68,12 @@ public class SearchPage extends BasePage {
     }
 
     public void switchToRegistrationPage() {
-        wait(btnOpenMenu);
         click(btnOpenMenu);
-        wait(registration);
         click(registration);
     }
 
     public void switchToLoginPage() {
-        wait(btnOpenMenu);
         click(btnOpenMenu);
-        wait(login);
         click(login);
     }
 

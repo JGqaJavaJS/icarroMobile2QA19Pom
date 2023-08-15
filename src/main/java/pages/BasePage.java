@@ -15,22 +15,25 @@ public class BasePage {
     }
 
     public String getText(MobileElement element) {
+        wait(element, 15);
         return element.getText().trim().toUpperCase();
     }
 
     public void typeText(String text, MobileElement element) {
+        wait(element, 15);
         element.click();
         element.clear();
         element.sendKeys(text);
-        AppiumConfig.getDriver().hideKeyboard();
+        AppiumConfig.getDriver().hideKeyboard();// driver.hideKeyboard()
     }
 
     public void click(MobileElement element) {
+        wait(element, 15);
         element.click();
     }
 
-    public void wait(MobileElement element) {
-        new WebDriverWait(AppiumConfig.getDriver(), 15)
+    private void wait(MobileElement element, int seconds) {
+        new WebDriverWait(AppiumConfig.getDriver(), seconds)
                 .until(ExpectedConditions.visibilityOf(element));
     }
 

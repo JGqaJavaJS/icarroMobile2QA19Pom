@@ -10,7 +10,6 @@ public class SearchResultPage extends BasePage{
     MobileElement title;
 
     public boolean validateTitleDisplaysCorrect() {
-        wait(title);
         String actualResult = getText(title);
         String expectedResult = "Search result".toUpperCase();
         if(actualResult.equals(expectedResult)) {

@@ -16,7 +16,6 @@ public class LoginPage extends BasePage{
     MobileElement btnYalla;
 
     public void fillLoginForm(String email, String password) {
-        wait(inputEmail);
         typeText(email, inputEmail);
         typeText(password, inputPassword);
         click(btnYalla);

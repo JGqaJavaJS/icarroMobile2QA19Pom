@@ -1,5 +1,3 @@
-import config.AppiumConfig;
-import org.testng.annotations.BeforeSuite;
 import pages.*;
 import utils.RandomUtils;
 

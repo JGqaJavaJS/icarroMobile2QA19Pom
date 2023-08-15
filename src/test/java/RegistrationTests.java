@@ -17,8 +17,7 @@ public class RegistrationTests extends BaseTest {
                 .email(email)
                 .password("123456Aa$")
                 .build();
-        searchPage.switchToRegistrationPage();
-        registrationPage.fillRegistrationForm(userDto);
+        searchPage = searchPage.switchToRegistrationPage().fillRegistrationForm(userDto);
         Assert.assertTrue(searchPage.validatePageTitleCorrect());
     }
 

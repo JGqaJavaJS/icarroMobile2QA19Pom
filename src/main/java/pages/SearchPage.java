@@ -38,7 +38,7 @@ public class SearchPage extends BasePage {
     @FindBy(xpath = "//*[@resource-id='com.telran.ilcarro:id/findTitle']")
     MobileElement pageTitle;
 
-    public void fillSearchForm(String city, int counter, int dayFrom, int dayTo) {
+    public SearchResultPage fillSearchForm(String city, int counter, int dayFrom, int dayTo) {
         typeText(city, location);
         click(dateFrom);
         for(int i = 0; i < counter; i++) {
@@ -53,6 +53,7 @@ public class SearchPage extends BasePage {
         click(days.get(dayTo-1));
         click(btnOkCalendar);
         click(btnYalla);
+        return new SearchResultPage();
     }
 
     public boolean validatePageTitleCorrect() {
@@ -67,14 +68,16 @@ public class SearchPage extends BasePage {
         }
     }
 
-    public void switchToRegistrationPage() {
+    public RegistrationPage switchToRegistrationPage() {
         click(btnOpenMenu);
         click(registration);
+        return new RegistrationPage();
     }
 
-    public void switchToLoginPage() {
+    public LoginPage switchToLoginPage() {
         click(btnOpenMenu);
         click(login);
+        return new LoginPage();
     }
 
 }

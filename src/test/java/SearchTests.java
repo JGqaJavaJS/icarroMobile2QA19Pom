@@ -12,7 +12,7 @@ public class SearchTests extends BaseTest {
 
     @Test
     public void testFillSearchForm() {
-        searchPage.fillSearchForm(city, quantityNextMonth, dayFrom, dayTo);
+        searchResultPage = searchPage.fillSearchForm(city, quantityNextMonth, dayFrom, dayTo);
         Assert.assertTrue(searchResultPage.validateTitleDisplaysCorrect());
     }
 

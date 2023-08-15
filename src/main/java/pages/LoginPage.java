@@ -15,9 +15,10 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//*[@resource-id = 'com.telran.ilcarro:id/loginBtn']")
     MobileElement btnYalla;
 
-    public void fillLoginForm(String email, String password) {
+    public SearchPage fillLoginForm(String email, String password) {
         typeText(email, inputEmail);
         typeText(password, inputPassword);
         click(btnYalla);
+        return new SearchPage();
     }
 }

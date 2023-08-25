@@ -9,8 +9,7 @@ public class LoginTests extends BaseTest {
     public void loginTestPositive() {
         String email = "john215autotest@hotmail.com";
         String password = "123456Aa$";
-        searchPage.switchToLoginPage();
-        loginPage.fillLoginForm(email, password);
+        searchPage = searchPage.switchToLoginPage().fillLoginForm(email, password);
         Assert.assertTrue(searchPage.validatePageTitleCorrect());
     }
 

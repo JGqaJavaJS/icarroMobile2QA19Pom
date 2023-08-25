@@ -67,14 +67,16 @@ public class SearchPage extends BasePage {
         }
     }
 
-    public void switchToRegistrationPage() {
+    public RegistrationPage switchToRegistrationPage() {
         click(btnOpenMenu);
         click(registration);
+        return new RegistrationPage();
     }
 
-    public void switchToLoginPage() {
+    public LoginPage switchToLoginPage() {
         click(btnOpenMenu);
         click(login);
+        return new LoginPage();
     }
 
 }
